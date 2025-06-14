@@ -1,0 +1,67 @@
+<%- include('partials/header.ejs') %>
+
+<% if(locals.postsArr) {%>
+    <div class="text-center my-5"><h1 class="fw-bold">Enjoy readings some of our Posts!</h1></div>
+    <% postsArr.forEach((post, index) => { %>
+        
+       <div class=" col-6 px-4 py-4 my-5 mx-auto text-center rounded border border-dark" style="background-color: rgb(204, 204, 204);">
+      <h1 class="display-5 fw-bold text-body-emphasis"><%= post.title %></h1>
+       <div class="col-lg-6 mx-auto">
+         <p class="lead mb-4 fs-3"><%= post.text %></p> 
+          <figcaption class="blockquote-footer text-dark fs-5">
+                By <cite title="Source Title"><%= post.name %> </cite>
+            </figcaption>
+         <hr class="border border-dark">
+         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center ">
+            <div class="mx-4">
+                <form action="/delete" method="post">
+                    <input type="hidden" name="id" value="<%= index %>">
+                     <button type="submit" class="btn-dark btn btn-lg">Delete</button>
+                </form>
+            </div> 
+            <div class="mx-4">
+                <form action="/edit" method="post">
+                    <input type="hidden" name="title" value="<%= post.title %>">
+                    <input type="hidden" name="name" value="<%= post.name %>">
+                    <input type="hidden" name="text" value="<%= post.text %>">
+                    <input type="hidden" name="id" value="<%= index %>">
+                     <button type="submit" class="btn-outline-dark btn btn-lg">Edit</button>
+                </form> 
+            </div>
+               
+             
+            </div> 
+        </div> 
+    </div>
+ 
+    <% }) %>
+
+
+
+
+<% } else {%>
+   <div class="px-4 pt-3 my-5 text-center overflow-auto"> 
+        <h1 class="display-4 fw-bold text-body-emphasis">Welcome to BlogoZoid!</h1> 
+        <div class="col-lg-6 mx-auto"> 
+             <p class="lead fs-3 fw-bold text-body-emphasis">
+                No posts yet, Make one now 
+             </p> 
+             <div>
+                <a href="/submit">
+                             <button class="btn-dark btn btn-lg">Create</button>
+             </a>
+             </div>
+             
+             <div>
+                <img src="https://img.freepik.com/free-vector/stay-home-abstract-concept-vector-illustration-forced-isolation-covid19-outbreak-prevention-measures-social-distance-governmental-support-self-protection-wear-mask-abstract-metaphor_335657-6164.jpg?semt=ais_hybrid&w=740" height="400px">
+             </div>
+             
+        </div> 
+    </div>
+    <% } %>
+
+    
+
+
+
+    <%- include('partials/footer.ejs') %>

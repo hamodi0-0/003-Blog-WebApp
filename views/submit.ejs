@@ -1,0 +1,47 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="text-center my-5"><h1 class="fw-bold">Start creating your post!</h1></div>
+
+
+<%  if(locals.data){ %>
+      <div class="text-center">
+             <form action="/" method="post">
+            <div class="mb-3">
+            <input type="text" class="form-control-sm col-6"  name="name" placeholder="Your Name" value="<%= data.name %>" required>
+            </div>
+      
+            <div class="mb-3">
+            <input type="text" class="form-control-sm col-6" name="title" placeholder="Your Title" value="<%= data.title %>" required>
+            </div>
+      
+            <div class="mb-3">
+            <input type="text"  class="form-control-sm col-6" style="height: 100px;" name="text" placeholder="Enter Your Blog" value="<%= data.text %>" required>
+            </div>
+      
+            <button type="submit" class="btn btn-dark btn-lg">Update</button>
+      </form>
+      </div>
+     
+      
+   <%  } else {  %>
+            <div class="text-center">
+            <form action="/" method="post">
+            <div class="mb-3">
+            <input type="text" class="form-control-sm col-6"  name="name" placeholder="Your Name" required>
+            </div>
+
+            <div class="mb-3">
+            <input type="text" class="form-control-sm col-6" name="title" placeholder="Your Title" required>
+            </div>
+
+            <div class="mb-3">
+            <input type="text" style="height: 100px;"  class="form-control-sm col-6" name="text" placeholder="Enter Your Blog" required>
+            </div>
+
+            <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+      </form>
+            </div>
+      
+    <% } %>
+
+    <%- include('partials/footer.ejs') %>

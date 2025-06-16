@@ -3,7 +3,10 @@ This is a minimal blogging web application where you can add delete or edit blog
 
 ## Setup
 - clone this repo
+- run npm install 
 - run node index.js in your terminal
 - you should see the result in localhost port 3000
 
-  hopw you like it!
+  ---
+
+  hope you like it!
